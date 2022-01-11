@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FakeDataService } from 'src/app/service/fake-data.service';
 
@@ -11,29 +12,35 @@ export class NewsComponent implements OnInit {
   newsData: any;
   displayNews =  [{}];
   newsArray: any;
-  loadMoreData = [{}];
-
+  updatedNewsData: any;
+  page = 1;
   constructor(private fakeData: FakeDataService) { }
 
   ngOnInit(): void {
-    this.getNews();
+    this.getNews(this.page);
   }
 
-  getNews() {
+  getNews(page: number) {
     this.fakeData.getNews()
     .then(data => {
+      console.log(page)
       this.newsData = data;
       this.displayNews.push(this.newsData);
-      this.newsArray = this.displayNews[1]
-      this.loadMoreData.push(this.displayNews[1]);
-      console.log(this.loadMoreData);
+      if (page === 1) {
+        this.newsArray = this.displayNews[1];
+        this.updatedNewsData = this.newsArray.slice(0, 6);
+        console.log(this.updatedNewsData);
+      } else {
+        this.updatedNewsData = this.newsArray;
+        console.log(this.updatedNewsData);
+      }
     }).catch(error => {
       console.log(error);
     });
   }
 
   loadMoreNews() {
-    console.log('test')
+    this.page = 2;
     this.ngOnInit();
   }
 }

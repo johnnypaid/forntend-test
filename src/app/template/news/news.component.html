@@ -3,7 +3,7 @@
     <h1>NEWS</h1>
   </div>
   <div class="news-container">
-    <div *ngFor="let news of newsArray" class="news-item">
+    <div *ngFor="let news of updatedNewsData; let i = index" class="news-item">
         <img [src]="news.imgurl" alt="">
       <div class="news-item-content">
         <p>{{ news.published }}</p>

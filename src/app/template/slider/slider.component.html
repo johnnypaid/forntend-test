@@ -1,19 +1,9 @@
 <section>
   <div class="slideshow-container">
 
-    <div class="mySlides fade">
-      <img src="assets/image/slide-1.jpg" style="width:100%">
-      <div class="text"><h2>Caption One</h2></div>
-    </div>
-
-    <div class="mySlides fade">
-      <img src="assets/image/slide-2.jpg" style="width:100%">
-      <div class="text"><h2>Caption Two</h2></div>
-    </div>
-
-    <div class="mySlides fade">
-      <img src="assets/image/slide-3.jpg" style="width:100%">
-      <div class="text"><h2>Caption Three</h2></div>
+    <div *ngFor="let slides of finalArray" class="mySlides fade">
+      <img [src]="slides.imgurl" style="width:100%">
+      <div class="text"><h2><span class="slide-text">{{ slides.description }}</span></h2></div>
     </div>
 
     <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
