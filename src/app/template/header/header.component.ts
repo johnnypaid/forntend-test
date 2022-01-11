@@ -10,11 +10,13 @@ export class HeaderComponent implements OnInit {
   @Output() showFormEvent = new EventEmitter<boolean>();
   @Input() showAdmin = false;
 
+  showLogout = false;
   buttonText = 'login';
 
   constructor() { }
 
   ngOnInit(): void {
+    (!localStorage.getItem('isLogin')) ? this.showLogout = false : this.showLogout = true;
   }
 
   showChildForm() {
@@ -31,7 +33,8 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.buttonText = 'login';
-    this.showAdmin = false;
+    this.showLogout = false;
+    localStorage.removeItem('isLogin');
     this.showFormEvent.emit(false);
   }
 }

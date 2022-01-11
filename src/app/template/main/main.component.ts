@@ -20,6 +20,13 @@ export class MainComponent implements OnInit {
   constructor(private scroll: ViewportScroller) { }
 
   ngOnInit(): void {
+    console.log(localStorage.getItem('isLogin'));
+
+    if (!localStorage.getItem('isLogin')) {
+      this.showSlider = true;
+    } else {
+      this.showSlider = false;
+    }
   }
 
   showFormEv(value: boolean) {
@@ -40,6 +47,7 @@ export class MainComponent implements OnInit {
   showAdminEvent(value: boolean) {
     console.log(value)
     this.showAdmin = value;
+    location.reload();
   }
 
   scrollToTop(){

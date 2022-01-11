@@ -38,6 +38,7 @@ export class FormComponent implements OnInit {
       case 'login': {
         if (this.submitForm.valid) {
           console.log(this.submitForm.value);
+          localStorage.setItem('isLogin', 'true');
           this.showAdmin.emit(true);
           this.showForm = false;
         } else {
@@ -49,6 +50,7 @@ export class FormComponent implements OnInit {
       case 'register': {
         if (this.registerFrm.valid) {
           console.log(this.registerFrm.value);
+          localStorage.setItem('isLogin', 'true');
           this.showAdmin.emit(true);
           this.showForm = false;
         } else {
