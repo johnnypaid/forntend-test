@@ -1,0 +1,35 @@
+.header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+  &-nav {
+    height: 88px;
+    background-color: #fff;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: #333333;
+      text-align: center;
+      padding: 30px 128px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+  }
+
+  &-nav img{
+    max-width: 133px;
+  }
+}

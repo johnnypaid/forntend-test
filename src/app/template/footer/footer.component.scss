@@ -1,0 +1,31 @@
+.footer {
+  margin-bottom: -11px;
+
+  &-blog {
+    height: 150px;
+    background-color: #292929;
+    margin-bottom: -14px;
+    padding: 55px 116px;
+
+    &-image img{
+      max-width: 133px;
+    }
+
+    &-text {
+      color: #fff;
+    }
+  }
+
+  &-copyright {
+    height: 88px;
+    color: #fff;
+    background-color: #000000f2;
+  }
+
+  &-copyright p{
+    line-height: 84px;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 14px;
+  }
+}
