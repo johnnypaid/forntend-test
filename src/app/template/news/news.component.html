@@ -3,50 +3,15 @@
     <h1>NEWS</h1>
   </div>
   <div class="news-container">
-    <div class="news-item">
-        <img src="assets/image/sample.png" alt="">
+    <div *ngFor="let news of newsArray" class="news-item">
+        <img [src]="news.imgurl" alt="">
       <div class="news-item-content">
-        <p>2019.06.19</p>
-        <p class="news-item-content-desc">これは、印刷および植字業界の単なるダミーテキストです これは、印刷および植字業界の単なるダミーテキストです</p>
-      </div>
-    </div>
-    <div class="news-item">
-      <img src="assets/image/sample.png" alt="">
-      <div class="news-item-content">
-        <p>2019.06.19</p>
-        <p class="news-item-content-desc">これは、印刷および植字業界の単なるダミーテキストです これは、印刷および植字業界の単なるダミーテキストです</p>
-      </div>
-    </div>
-    <div class="news-item">
-      <img src="assets/image/sample.png" alt="">
-      <div class="news-item-content">
-        <p>2019.06.19</p>
-        <p class="news-item-content-desc">これは、印刷および植字業界の単なるダミーテキストです これは、印刷および植字業界の単なるダミーテキストです</p>
-      </div>
-    </div>
-    <div class="news-item">
-      <img src="assets/image/sample.png" alt="">
-      <div class="news-item-content">
-        <p>2019.06.19</p>
-        <p class="news-item-content-desc">これは、印刷および植字業界の単なるダミーテキストです これは、印刷および植字業界の単なるダミーテキストです</p>
-      </div>
-    </div>
-    <div class="news-item">
-      <img src="assets/image/sample.png" alt="">
-      <div class="news-item-content">
-        <p>2019.06.19</p>
-        <p class="news-item-content-desc">これは、印刷および植字業界の単なるダミーテキストです これは、印刷および植字業界の単なるダミーテキストです</p>
-      </div>
-    </div>
-    <div class="news-item">
-      <img src="assets/image/sample.png" alt="">
-      <div class="news-item-content">
-        <p>2019.06.19</p>
-        <p class="news-item-content-desc">これは、印刷および植字業界の単なるダミーテキストです これは、印刷および植字業界の単なるダミーテキストです</p>
+        <p>{{ news.published }}</p>
+        <p class="news-item-content-desc">{{ news.description }}</p>
       </div>
     </div>
   </div>
   <div class="news-loader-button">
-    <button class="news-button">LOAD MORE</button>
+    <button class="news-button" (click)="loadMoreNews()">LOAD MORE</button>
   </div>
 </section>

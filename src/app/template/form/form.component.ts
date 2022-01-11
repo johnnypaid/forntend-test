@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -8,10 +8,14 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
+  @Output() showAdmin = new EventEmitter<boolean>();
+
   submitTitle = 'login';
   buttonText = 'login';
   registerText= 'REGISTER HERE';
   regInput = false;
+
+  @Input() showForm = true;
 
   submitForm = this.formBuilder.group({
     email: ['', Validators.required],
@@ -32,13 +36,25 @@ export class FormComponent implements OnInit {
   onSubmit() {
     switch(this.submitTitle) {
       case 'login': {
-        console.log(this.submitForm.valid);
-        console.log(this.submitForm.value);
+        if (this.submitForm.valid) {
+          console.log(this.submitForm.value);
+          this.showAdmin.emit(true);
+          this.showForm = false;
+        } else {
+          console.log('Not allowed..')
+          this.showAdmin.emit(false);
+        }
         break;
       }
       case 'register': {
-        console.log(this.registerFrm.valid);
-        console.log(this.registerFrm.value);
+        if (this.registerFrm.valid) {
+          console.log(this.registerFrm.value);
+          this.showAdmin.emit(true);
+          this.showForm = false;
+        } else {
+          console.log('Not allowed..');
+          this.showAdmin.emit(false);
+        }
         break;
       }
     }
@@ -57,5 +73,6 @@ export class FormComponent implements OnInit {
       this.registerText = 'REGISTER HERE'
     }
   }
+
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Output() showFormEvent = new EventEmitter<boolean>();
+  @Input() showAdmin = false;
 
   buttonText = 'login';
 
@@ -17,6 +18,8 @@ export class HeaderComponent implements OnInit {
   }
 
   showChildForm() {
+    console.log(this.buttonText);
+
     if (this.buttonText === 'login') {
       this.buttonText = 'close';
       this.showFormEvent.emit(true);
@@ -24,5 +27,11 @@ export class HeaderComponent implements OnInit {
       this.buttonText = 'login';
       this.showFormEvent.emit(false);
     }
+  }
+
+  logout() {
+    this.buttonText = 'login';
+    this.showAdmin = false;
+    this.showFormEvent.emit(false);
   }
 }

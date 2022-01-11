@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -9,8 +10,14 @@ export class MainComponent implements OnInit {
   title = 'frontend-exam';
   showForm = false;
   showSlider = true;
+  showAdmin = false;
 
-  constructor() { }
+  pageYoffset = 0;
+  @HostListener('window:scroll', ['$event']) onScroll(event: any){
+    this.pageYoffset = window.pageYOffset;
+  }
+
+  constructor(private scroll: ViewportScroller) { }
 
   ngOnInit(): void {
   }
@@ -28,5 +35,14 @@ export class MainComponent implements OnInit {
         this.showSlider = true;
       }
     }
+  }
+
+  showAdminEvent(value: boolean) {
+    console.log(value)
+    this.showAdmin = value;
+  }
+
+  scrollToTop(){
+    this.scroll.scrollToPosition([0,0]);
   }
 }

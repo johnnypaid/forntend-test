@@ -1,5 +1,5 @@
-<div class="form">
-  <h2>{{ submitTitle }}</h2>
+<div *ngIf="showForm" class="form">
+  <h2>{{ submitTitle }} </h2>
   <div *ngIf="!regInput; then thenBlock else elseBlock"></div>
   <ng-template #thenBlock>
     <form class="form-group" [formGroup]="submitForm" (ngSubmit)="onSubmit()">

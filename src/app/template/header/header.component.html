@@ -2,7 +2,8 @@
   <div class="header-nav">
     <ul>
       <li><a href="#home"><img src="assets/image/nav-logo.png" alt=""></a></li>
-      <li style="float:right"><a type="button" (click)="showChildForm()">{{ buttonText }}</a></li>
+      <li *ngIf="!showAdmin" style="float:right"><a type="button" (click)="showChildForm()">{{ buttonText }}</a></li>
+      <li *ngIf="showAdmin" style="float:right"><a type="button" (click)="logout()">LOGOUT</a></li>
     </ul>
   </div>
 </nav>
