@@ -1,9 +1,26 @@
 <div class="form">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <label for="fname">Email</label>
-    <input type="email" id="email" name="email">
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password">
-    <input type="submit" value="Submit">
-  </form>
+  <h2>{{ submitTitle }}</h2>
+  <div *ngIf="!regInput; then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <form class="form-group" [formGroup]="submitForm" (ngSubmit)="onSubmit()">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" formControlName="email">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" formControlName="password">
+      <button class="form-btn" type="submit" value="Submit">{{ buttonText }}</button>
+    </form>
+    <p><span class="form-text-footer">No account yet? </span><a type="button" (click)="registerForm()">{{ registerText }}</a></p>
+  </ng-template>
+  <ng-template #elseBlock>
+    <form class="form-group" [formGroup]="registerFrm" (ngSubmit)="onSubmit()">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" formControlName="email">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" formControlName="password">
+      <label for="confirmPass">Confirm Password</label>
+      <input type="password" id="confirmPass" name="confirmPass" formControlName="confirmPass">
+      <button class="form-btn" type="submit" value="Submit">{{ buttonText }}</button>
+    </form>
+    <p><span class="form-text-footer">Already have an account? </span><a type="button" (click)="registerForm()">{{ registerText }}</a></p>
+  </ng-template>
 </div>

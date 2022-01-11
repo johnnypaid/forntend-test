@@ -9,10 +9,19 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class FormComponent implements OnInit {
 
   submitTitle = 'login';
+  buttonText = 'login';
+  registerText= 'REGISTER HERE';
+  regInput = false;
 
-  loginForm = this.formBuilder.group({
+  submitForm = this.formBuilder.group({
     email: ['', Validators.required],
     password: ['', Validators.required]
+  });
+
+  registerFrm = this.formBuilder.group({
+    email: ['', Validators.required],
+    password: ['', Validators.required],
+    confirmPass: ['', Validators.required]
   });
 
   constructor(private formBuilder: FormBuilder) { }
@@ -21,7 +30,32 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginForm.value)
+    switch(this.submitTitle) {
+      case 'login': {
+        console.log(this.submitForm.valid);
+        console.log(this.submitForm.value);
+        break;
+      }
+      case 'register': {
+        console.log(this.registerFrm.valid);
+        console.log(this.registerFrm.value);
+        break;
+      }
+    }
+  }
+
+  registerForm() {
+    if (this.regInput === false ) {
+      this.regInput = true;
+      this.submitTitle = 'register';
+      this.buttonText = 'register';
+      this.registerText = 'LOGIN HERE'
+    } else {
+      this.regInput = false;
+      this.submitTitle = 'login';
+      this.buttonText = 'login';
+      this.registerText = 'REGISTER HERE'
+    }
   }
 
 }

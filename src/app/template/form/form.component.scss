@@ -1,5 +1,44 @@
+
+label {
+  color: #a39c9c;
+}
+
 .form {
-  padding: 0px 400px 0px 400px;
+  padding: 0px 450px 0px 450px;
+
+  &-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    border-style: none;
+    text-transform: uppercase;
+  }
+
+  &-group {
+    margin-top: 2em;
+  }
+
+  &-text-footer {
+    color: #a39c9c;
+  }
+}
+
+.form p {
+  text-align: center;
+}
+
+.form a {
+  text-decoration: none;
+  color: black;
+}
+
+.form a:hover {
+  cursor: pointer;
+}
+
+.form h2{
+  text-transform: uppercase;
 }
 
 input {
