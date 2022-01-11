@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +8,9 @@ import { HeaderComponent } from './template/header/header.component';
 import { FooterComponent } from './template/footer/footer.component';
 import { NewsComponent } from './template/news/news.component';
 import { SliderComponent } from './template/slider/slider.component';
+import { FormComponent } from './template/form/form.component';
+import { MainComponent } from './template/main/main.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +18,15 @@ import { SliderComponent } from './template/slider/slider.component';
     HeaderComponent,
     FooterComponent,
     NewsComponent,
-    SliderComponent
+    SliderComponent,
+    FormComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

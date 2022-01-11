@@ -1,1 +1,30 @@
-<p>slider works!</p>
+<section>
+  <div class="slideshow-container">
+
+    <div class="mySlides fade">
+      <img src="assets/image/slide-1.jpg" style="width:100%">
+      <div class="text"><h2>Caption One</h2></div>
+    </div>
+
+    <div class="mySlides fade">
+      <img src="assets/image/slide-2.jpg" style="width:100%">
+      <div class="text"><h2>Caption Two</h2></div>
+    </div>
+
+    <div class="mySlides fade">
+      <img src="assets/image/slide-3.jpg" style="width:100%">
+      <div class="text"><h2>Caption Three</h2></div>
+    </div>
+
+    <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+    <a class="next" (click)="plusSlides(1)">&#10095;</a>
+
+    <div class="dots-container">
+      <span class="dot" (click)="currentSlide(1)"></span>
+      <span class="dot" (click)="currentSlide(2)"></span>
+      <span class="dot" (click)="currentSlide(3)"></span>
+    </div>
+
+    </div>
+    <br>
+</section>
