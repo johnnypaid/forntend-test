@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { FakeDataService } from 'src/app/service/fake-data.service';
 
@@ -15,6 +15,8 @@ export class NewsComponent implements OnInit {
   updatedNewsData: any;
   page = 1;
   createPost = false;
+
+  @Output() createNews = new EventEmitter<boolean>();
 
   constructor(private fakeData: FakeDataService, private router: Router) { }
 
@@ -55,6 +57,7 @@ export class NewsComponent implements OnInit {
   }
 
   newPost() {
+    this.createNews.emit(true);
     this.router.navigate(['/new-post']);
   }
 }

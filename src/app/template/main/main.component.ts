@@ -12,6 +12,7 @@ export class MainComponent implements OnInit {
   showForm = false;
   showSlider = true;
   showAdmin = false;
+  showCreateNews = false;
 
   pageYoffset = 0;
   @HostListener('window:scroll', ['$event']) onScroll(event: any){
