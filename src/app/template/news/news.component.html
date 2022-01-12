@@ -1,6 +1,7 @@
 <section class="news">
   <div class="news-title">
     <h1>NEWS</h1>
+    <span class="new-post" *ngIf="createPost"><a type="button" (click)="newPost()">Create New Post</a></span>
   </div>
   <div class="news-container">
     <div *ngFor="let news of updatedNewsData; let i = index" class="news-item">

@@ -11,6 +11,7 @@ import { SliderComponent } from './template/slider/slider.component';
 import { FormComponent } from './template/form/form.component';
 import { MainComponent } from './template/main/main.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NewPostComponent } from './template/new-post/new-post.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NewsComponent,
     SliderComponent,
     FormComponent,
-    MainComponent
+    MainComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,

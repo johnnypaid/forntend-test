@@ -1,5 +1,5 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FakeDataService } from 'src/app/service/fake-data.service';
 
 @Component({
@@ -14,10 +14,20 @@ export class NewsComponent implements OnInit {
   newsArray: any;
   updatedNewsData: any;
   page = 1;
-  constructor(private fakeData: FakeDataService) { }
+  createPost = false;
+
+  constructor(private fakeData: FakeDataService, private router: Router) { }
 
   ngOnInit(): void {
     this.getNews(this.page);
+    console.log(localStorage.getItem('isLogin'));
+    // (localStorage.getItem('isLogin')) ? this.createPost = true : this.createPost = false;
+
+    if (localStorage.getItem('isLogin')) {
+      this.createPost = true;
+    } else {
+      this.createPost = false;
+    }
   }
 
   getNews(page: number) {
@@ -42,5 +52,9 @@ export class NewsComponent implements OnInit {
   loadMoreNews() {
     this.page = 2;
     this.ngOnInit();
+  }
+
+  newPost() {
+    this.router.navigate(['/new-post']);
   }
 }

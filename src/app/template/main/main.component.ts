@@ -1,5 +1,6 @@
 import { ViewportScroller } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -17,13 +18,12 @@ export class MainComponent implements OnInit {
     this.pageYoffset = window.pageYOffset;
   }
 
-  constructor(private scroll: ViewportScroller) { }
+  constructor(private scroll: ViewportScroller, private router: Router) { }
 
   ngOnInit(): void {
-    console.log(localStorage.getItem('isLogin'));
-
     if (!localStorage.getItem('isLogin')) {
       this.showSlider = true;
+      this.router.navigate(['/']);
     } else {
       this.showSlider = false;
     }

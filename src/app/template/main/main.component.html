@@ -1,15 +1,17 @@
 <div class="frontend">
   <app-header [showAdmin]="showAdmin" (showFormEvent)="showFormEv($event)"></app-header>
   <div class="frontend-container">
-    <app-slider *ngIf="showSlider"></app-slider>
-    <app-form *ngIf="showForm" (showAdmin)="showAdminEvent($event)"></app-form>
-    <main>
-      <app-news></app-news>
-    </main>
-    <div (click)="scrollToTop()" class="frontend-scroll-top" *ngIf="pageYoffset > 1300" >
-      <span class="frontend-scroll-arrow">^</span><br />
-      <span>TOP</span>
-   </div>
+    <div class="frontend-content">
+      <app-slider *ngIf="showSlider"></app-slider>
+      <app-form *ngIf="showForm" (showAdmin)="showAdminEvent($event)"></app-form>
+      <main>
+        <app-news></app-news>
+      </main>
+      <div (click)="scrollToTop()" class="frontend-scroll-top" *ngIf="pageYoffset > 1300" >
+        <span class="frontend-scroll-arrow">^</span><br />
+        <span>TOP</span>
+      </div>
+    </div>
     <app-footer></app-footer>
   </div>
 </div>

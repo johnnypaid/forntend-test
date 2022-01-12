@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,15 +14,13 @@ export class HeaderComponent implements OnInit {
   showLogout = false;
   buttonText = 'login';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     (!localStorage.getItem('isLogin')) ? this.showLogout = false : this.showLogout = true;
   }
 
   showChildForm() {
-    console.log(this.buttonText);
-
     if (this.buttonText === 'login') {
       this.buttonText = 'close';
       this.showFormEvent.emit(true);
@@ -36,5 +35,6 @@ export class HeaderComponent implements OnInit {
     this.showLogout = false;
     localStorage.removeItem('isLogin');
     this.showFormEvent.emit(false);
+    location.reload();
   }
 }

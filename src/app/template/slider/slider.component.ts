@@ -52,8 +52,7 @@ export class SliderComponent implements OnInit {
     .then(data => {
       this.slides = data;
       this.slideArray.push(this.slides);
-      this.finalArray = this.slideArray[1]
-      console.log(this.finalArray);
+      this.finalArray = this.slideArray[1];
     });
   }
 }
