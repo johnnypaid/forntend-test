@@ -72,6 +72,6 @@ export const slides = [
   },
   {
     imgurl: 'assets/image/slide-3.jpg',
-    description: 'これは、印刷および植字業界の単なるダミ'
+    description: 'これは、印刷および植字業界の単なるダ'
   }
 ];
